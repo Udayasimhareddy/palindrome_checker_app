@@ -11,10 +11,21 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println("It is not a palindrome.");
         }
-
     }
     public static boolean isPalindrome(String text) {
-        String reversed = new StringBuilder(text).reverse().toString();
-        return text.equals(reversed);
+        char[] arr = text.toCharArray();
+
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left < right) {
+            if (arr[left] != arr[right]) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        return true;
     }
 }
